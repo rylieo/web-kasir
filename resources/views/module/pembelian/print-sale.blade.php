@@ -153,10 +153,6 @@
                                                 <span class="text-inverse">{{ $usedPoint ?? 0 }}</span>
                                             
                                         </div>
-                                        <div class="sub-price">
-                                            <small>KASIR</small>
-                                            <span class="text-inverse">{{ Auth::user()->name }}</span>
-                                        </div>
                                             <div class="sub-price">
                                                 <small>BAYAR</small>
                                                 <span class="text-inverse">Rp. {{ number_format($sale['total_pay'], 0, ',', '.') }}</span>
