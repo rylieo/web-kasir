@@ -20,7 +20,7 @@
                             });
                         </script>
                         @endif
-                        
+
                         <div class="col-6">
                             <h4 class="card-title mb-0">Daftar Produk</h4>
                         </div>
@@ -33,7 +33,7 @@
 
                         @if(Auth::user()->role === 'admin')
                             <a href="{{ route('product.create') }}">
-                                <button type="button" class="btn btn-info mb-4">Tambah Data</button>
+                                <button type="button" class="btn btn-primary mb-4">Tambah Data</button>
                             </a>
                         @endif
 

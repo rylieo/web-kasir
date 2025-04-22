@@ -36,7 +36,7 @@
                         <h4 class="card-title mb-0">Daftar Pengguna</h4>
                         <div>
                             <a href="{{ route('user.create') }}">
-                                <button type="button" class="btn btn-info mb-4">Tambah Pengguna</button>
+                                <button type="button" class="btn btn-primary mb-4">Tambah Pengguna</button>
                             </a>
                         </div>
                     </div>
