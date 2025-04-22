@@ -94,7 +94,7 @@
                                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                         <div class="invoice-details">
                                             <div class="invoice-num">
-                                                <div>Invoice - #{{ str_pad($sale['id'], 3, '0', STR_PAD_LEFT) }}</div>
+                                                <div>Faktur - {{ str_pad($sale['id'], 3, '0', STR_PAD_LEFT) }}</div>
                                                 <div>{{ \Carbon\Carbon::now()->format('d F Y') }}</div>
                                             </div>
                                         </div>
