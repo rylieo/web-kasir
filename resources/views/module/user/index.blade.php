@@ -33,7 +33,7 @@
                             </script>
                         @endif
 
-                        <h4 class="card-title mb-0">Daftar</h4>
+                        <h4 class="card-title mb-0">Daftar Pengguna</h4>
                         <div>
                             <a href="{{ route('user.create') }}">
                                 <button type="button" class="btn btn-info mb-4">Tambah Pengguna</button>
