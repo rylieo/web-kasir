@@ -1,11 +1,11 @@
 # 📘 Panduan Aplikasi
 
-Selamat datang! Untuk memulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah kami sediakan.
+Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah kami sediakan.
 
-👉 [Panduan User](https://www.mediafire.com/file/wlyk8l4hmwisx3z/Panduan_User.docx/file){:target="\_blank"}
+👉 [Panduan User](https://www.mediafire.com/file/wlyk8l4hmwisx3z/Panduan_User.docx/file){:target="_blank"}
 
 ---
 
-Jika Anda mengalami kesulitan atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi saya.
+Jika Anda mengalami kesulitan atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
 
 Terima kasih telah menggunakan website ini!
