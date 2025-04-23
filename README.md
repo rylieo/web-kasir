@@ -2,7 +2,7 @@
 
 Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah kami sediakan.
 
-👉 [Panduan User](https://www.mediafire.com/file/wlyk8l4hmwisx3z/Panduan_User.docx/file){:target="_blank"}
+👉 [Panduan User](https://www.mediafire.com/file/wlyk8l4hmwisx3z/Panduan_User.docx/file)
 
 ---
 
