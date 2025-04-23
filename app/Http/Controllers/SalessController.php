@@ -15,9 +15,33 @@ class SalessController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $saless = saless::with('customer', 'user', 'detail_sales')->orderBy('id','desc')->get();
+        $filter = $request->get('filter', 'semua');
+        $query = Saless::with('customer', 'detail_sales.product', 'user');
+
+        switch ($filter) {
+            case 'hari':
+                $query->whereDate('sale_date', Carbon::today());
+                break;
+            case 'minggu':
+                $query->whereBetween('sale_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+                break;
+            case 'bulan':
+                $query->whereMonth('sale_date', Carbon::now()->month)
+                    ->whereYear('sale_date', Carbon::now()->year);
+                break;
+            case 'tahun':
+                $query->whereYear('sale_date', Carbon::now()->year);
+                break;
+            case 'semua':
+            default:
+                // tidak ada filter tambahan
+                break;
+        }
+
+        $saless = $query->get();
+
         return view('module.pembelian.index', compact('saless'));
     }
 

@@ -157,10 +157,12 @@ class DetailSalesController extends Controller
         }
     }
 
-    public function exportexcel()
+    public function exportexcel(Request $request)
     {
-        return FacadesExcel::download(new salesimport, 'Penjualan.xlsx');
+        $filter = $request->get('filter', 'semua');
+        return FacadesExcel::download(new salesimport($filter), 'Penjualan.xlsx');
     }
+
     /**
      * Show the form for creating a new resource.
      */

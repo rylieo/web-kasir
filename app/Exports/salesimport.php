@@ -7,32 +7,64 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Carbon\Carbon;
 
 class salesimport implements FromCollection, WithHeadings, WithMapping
 {
+    protected $filter;
+
+    public function __construct($filter = null)
+    {
+        $this->filter = $filter;
+    }
+
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
+        $query = saless::with('customer', 'user', 'detail_sales')->orderBy('id', 'desc');
+
         if (Auth::user()->role == 'employee') {
-            return saless::with('customer', 'user', 'detail_sales')->orderBy('id','desc')->get(); 
-        }else{
-           return saless::with('customer', 'user', 'detail_sales')->orderBy('id','desc')->get();
+            $query->where('user_id', Auth::id());
         }
+
+        // Apply filter
+        switch ($this->filter) {
+            case 'hari':
+                $query->whereDate('sale_date', Carbon::today());
+                break;
+            case 'minggu':
+                $query->whereBetween('sale_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+                break;
+            case 'bulan':
+                $query->whereMonth('sale_date', Carbon::now()->month)
+                    ->whereYear('sale_date', Carbon::now()->year);
+                break;
+            case 'tahun':
+                $query->whereYear('sale_date', Carbon::now()->year);
+                break;
+            case 'semua':
+            default:
+                // No filter
+                break;
+        }
+
+        return $query->get();
     }
+
     public function headings(): array
     {
         return [
-            'nama pembeli',
+            'Nama Pembeli',
             'No HP Pembeli',
-            'point Pembeli',
-            'product',
+            'Poin Pembeli',
+            'Produk',
             'Total Harga',
-            'total bayar',
-            'total discount point',
-            'total kembalian',
-            'tanggal pembelian',
+            'Total Bayar',
+            'Total Diskon Poin',
+            'Total Kembalian',
+            'Tanggal Pembelian',
         ];
     }
 
@@ -44,15 +76,14 @@ class salesimport implements FromCollection, WithHeadings, WithMapping
             optional($item->customer)->point ?? 0,
             $item->detail_sales->map(function ($detail) {
                 return optional($detail->product)->name
-                    ? optional($detail->product)->name . ' (' . $detail->amount . ' : Rp. ' . number_format( $detail->subtotal, 0, ',', '.') . ')'
+                    ? optional($detail->product)->name . ' (' . $detail->amount . ' : Rp. ' . number_format($detail->subtotal, 0, ',', '.') . ')'
                     : 'Produk tidak tersedia';
-            })->implode(', '), // Menggabungkan semua produk
-            $item->detail_sales->sum('subtotal'), // Menjumlahkan subtotal dari semua detail
+            })->implode(', '),
+            $item->detail_sales->sum('subtotal'),
             $item->total_pay,
-            $item->total_price - optional($item->customer)->point ?? 0,
+            $item->total_price - (optional($item->customer)->point ?? 0),
             $item->total_return,
             $item->created_at,
         ];
     }
-    
 }
