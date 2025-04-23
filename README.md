@@ -6,6 +6,6 @@ Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahul
 
 ---
 
-Jika Anda mengalami kesulitan atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
+Jika Anda mengalami kesulitan atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi saya.
 
 Terima kasih telah menggunakan website ini!
