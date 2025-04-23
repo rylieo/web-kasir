@@ -1,4 +1,4 @@
-# 📘 Panduan Aplikasi
+# 📘 Panduan User
 
 Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah kami sediakan.
 
