@@ -1,6 +1,6 @@
 # 📘 Panduan User
 
-Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah kami sediakan.
+Selamat datang! Untuk mulai menggunakan website ini, silakan baca terlebih dahulu **Panduan User** yang telah saya sediakan.
 
 👉 [Panduan User](https://www.mediafire.com/file/wlyk8l4hmwisx3z/Panduan_User.docx/file)
 
